@@ -31,13 +31,13 @@ export function Navbar() {
     }
 
     return (
-        <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <nav className="border-b bg-red-600 text-white">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 justify-between items-center">
                     <div className="flex items-center gap-8">
                         <Link href="/" className="flex items-center gap-3">
-                            <img src="/logo.png" alt="DialSignal Logo" className="h-8 w-8" />
-                            <span className="font-bold text-xl text-slate-900 dark:text-white">DialSignal</span>
+                            <img src="/logo.png" alt="DialSignal Logo" className="h-8 w-8 bg-white rounded-full p-1" />
+                            <span className="font-bold text-xl text-white">DialSignal V5.0 (LIVE)</span>
                         </Link>
                         <div className="hidden md:flex gap-6 text-sm font-medium">
                             <Link href="/rankings" className="hover:text-primary transition-colors">Rankings</Link>
