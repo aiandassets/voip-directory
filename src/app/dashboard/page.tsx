@@ -3,6 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { AreaCodeSearch } from '@/components/dashboard/AreaCodeSearch';
 import { ActiveNumbersList } from '@/components/dashboard/ActiveNumbersList';
+import { RemediationList } from '@/components/dashboard/RemediationList';
 
 export default async function Dashboard() {
     const supabase = await createClient();
@@ -35,18 +36,10 @@ export default async function Dashboard() {
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-3">
-                    {/* Left Column: Active Numbers (Takes 2 cols) */}
+                    {/* Left Column: Active Numbers + Remediation (Takes 2 cols) */}
                     <div className="md:col-span-2 space-y-6">
                         <ActiveNumbersList />
-
-                        {/* Placeholder for future Remediation List */}
-                        <div className="rounded-xl border bg-card p-6 shadow-sm">
-                            <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-4">Remediation Cases</h3>
-                            <p className="text-sm text-muted-foreground">No active remediation requests.</p>
-                            <Link href="/remediate" className="mt-4 inline-block text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                                Start a Remediation Case &rarr;
-                            </Link>
-                        </div>
+                        <RemediationList />
                     </div>
 
                     {/* Right Column: Actions (Takes 1 col) */}
