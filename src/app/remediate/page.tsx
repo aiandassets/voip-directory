@@ -102,7 +102,7 @@ export default function RemediatePage() {
                             <button
                                 onClick={() => {
                                     // Save preferences
-                                    localStorage.setItem('trustdial_order_prefs', JSON.stringify({ areaCode, forwardingNumber }));
+                                    localStorage.setItem('dialsignal_order_prefs', JSON.stringify({ areaCode, forwardingNumber }));
                                     // Redirect to Stripe
                                     window.location.href = "https://buy.stripe.com/8x2cN5essh1m57D2T68EM05";
                                 }}

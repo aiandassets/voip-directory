@@ -20,7 +20,7 @@ export function Navbar() {
                 <div className="flex h-16 justify-between items-center">
                     <div className="flex items-center gap-8">
                         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-                            <span className="text-primary">Trust</span>Dial
+                            <span className="text-primary">Dial</span>Signal
                         </Link>
                         <div className="hidden md:flex gap-6 text-sm font-medium">
                             <Link href="/" className="hover:text-primary transition-colors">Directory</Link>

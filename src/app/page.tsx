@@ -61,7 +61,7 @@ export default function Home() {
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl mb-6 drop-shadow-sm">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">TrustDial</span>: The Credit Score<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">DialSignal</span>: The Credit Score<br />
             for Your Phone Numbers
           </h1>
           <p className="mt-6 text-lg leading-8 text-slate-300 max-w-2xl mx-auto">

@@ -39,7 +39,7 @@ export function LeadCaptureModal({ triggerButton, isOpen: forceOpen, onClose }: 
         e.preventDefault();
         setIsLoading(true);
 
-        const subject = "New TrustDial Lead & Data Submission";
+        const subject = "New DialSignal Lead & Data Submission";
         const body = `
 Name: ${name}
 Email: ${email}

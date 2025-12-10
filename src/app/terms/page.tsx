@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export const metadata = {
-    title: 'Terms & Conditions - TrustDial',
+    title: 'Terms & Conditions - DialSignal',
     description: 'Terms of service and TCPA opt-in agreement.',
 };
 
@@ -29,12 +29,12 @@ export default function TermsPage() {
                 <div className="prose prose-slate dark:prose-invert max-w-none">
                     <h2>TCPA Opt-In Agreement</h2>
                     <p className="mb-6">
-                        By submitting your information on this website (TrustDial), you agree to the following terms:
+                        By submitting your information on this website (DialSignal), you agree to the following terms:
                     </p>
 
                     <div className="p-6 bg-secondary/20 rounded-xl border border-border">
                         <p className="font-medium text-foreground">
-                            "I hereby consent to receive marketing communications, including calls, text messages, and emails, from TrustDial and its affiliates/partners regarding VOIP rates, services, and related offers. I understand that these communications may be generated using automated technology (including autodialers and prerecorded messages) and that my consent is not a condition of purchase. I agree that this consent applies even if my number is listed on a Do Not Call registry. I understand that this consent is valid for a period of 90 days from the date of submission."
+                            "I hereby consent to receive marketing communications, including calls, text messages, and emails, from DialSignal and its affiliates/partners regarding VOIP rates, services, and related offers. I understand that these communications may be generated using automated technology (including autodialers and prerecorded messages) and that my consent is not a condition of purchase. I agree that this consent applies even if my number is listed on a Do Not Call registry. I understand that this consent is valid for a period of 90 days from the date of submission."
                         </p>
                     </div>
 

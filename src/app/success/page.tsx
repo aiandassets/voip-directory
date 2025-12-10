@@ -19,7 +19,7 @@ function SuccessContent() {
             localStorage.setItem('voip-directory-role', 'pro'); // Legacy key, keeping for compatibility
 
             // Check for pending order
-            const savedPrefs = localStorage.getItem('trustdial_order_prefs');
+            const savedPrefs = localStorage.getItem('dialsignal_order_prefs');
             if (savedPrefs) {
                 setOrderPrefs(JSON.parse(savedPrefs));
                 // Optional: Clear it so it doesn't show up on next revisit? 
