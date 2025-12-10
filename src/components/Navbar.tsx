@@ -2,12 +2,28 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useUnlock } from '@/context/UnlockContext';
-import { LogIn, LayoutDashboard, Shield } from 'lucide-react';
+import { createClient } from '@/lib/supabase/client';
+import { useEffect, useState } from 'react';
+import { LogIn, LayoutDashboard } from 'lucide-react';
 
 export function Navbar() {
     const pathname = usePathname();
-    const { isUnlocked, role } = useUnlock();
+    const [user, setUser] = useState<any>(null);
+    const supabase = createClient();
+
+    useEffect(() => {
+        const getUser = async () => {
+            const { data: { user } } = await supabase.auth.getUser();
+            setUser(user);
+        };
+        getUser();
+
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+            setUser(session?.user ?? null);
+        });
+
+        return () => subscription.unsubscribe();
+    }, []);
 
     // Don't show public navbar on valid app routes (they have their own)
     if (pathname.startsWith('/dashboard') || pathname.startsWith('/admin')) {
@@ -31,18 +47,14 @@ export function Navbar() {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        {role === 'admin' ? (
-                            <Link href="/admin" className="flex items-center gap-2 text-sm font-medium text-red-500 hover:text-red-400">
-                                <Shield className="h-4 w-4" /> Admin
-                            </Link>
-                        ) : role === 'member' ? (
+                        {user ? (
                             <Link href="/dashboard" className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80">
                                 <LayoutDashboard className="h-4 w-4" /> Dashboard
                             </Link>
                         ) : (
                             <Link href="/login" className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors">
                                 <LogIn className="h-4 w-4" />
-                                Member Login
+                                Login
                             </Link>
                         )}
                     </div>
