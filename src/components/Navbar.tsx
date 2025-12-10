@@ -23,7 +23,7 @@ export function Navbar() {
                             <span className="text-primary">Dial</span>Signal
                         </Link>
                         <div className="hidden md:flex gap-6 text-sm font-medium">
-                            <Link href="/" className="hover:text-primary transition-colors">Directory</Link>
+                            <Link href="/rankings" className="hover:text-primary transition-colors">Rankings</Link>
                             <Link href="/reporting" className="hover:text-primary transition-colors">Reporting</Link>
                             <Link href="/roi" className="hover:text-primary transition-colors">VOIP ROI Calc</Link>
                             <Link href="/compare" className="hover:text-primary transition-colors">Compare Providers</Link>
