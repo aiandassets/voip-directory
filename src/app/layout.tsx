@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  title: "DialSignal v3 | Check Number Reputation",
+  description: "Is your business number marked 'Scam Likely'? Check your reputation instantly with DialSignal.",
   metadataBase: new URL('https://dialsignal.io'),
-  title: "DialSignal - The Credit Score for Your Phone Numbers",
-  description: "Check your spam risk, compare contact rates, and get instant clean numbers. The first transparency tool for VOIP performance.",
 };
 
 import { UnlockProvider } from '@/context/UnlockContext';
