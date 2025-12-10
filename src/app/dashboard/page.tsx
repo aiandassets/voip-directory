@@ -47,9 +47,16 @@ export default async function Dashboard() {
                         <AreaCodeSearch />
 
                         <div className="rounded-xl border bg-card p-6 shadow-sm">
-                            <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">Subscription</h3>
-                            <p className="mt-2 text-3xl font-bold">Free</p>
-                            <p className="text-sm text-muted-foreground">Pay-as-you-go.</p>
+                            <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">Billing & Invoices</h3>
+                            <p className="mt-2 text-3xl font-bold">Manage</p>
+                            <a
+                                href="https://billing.stripe.com/p/login/cNi7sL0BCaCY6bH8dq8EM00"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-4 inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                            >
+                                Open Customer Portal &rarr;
+                            </a>
                         </div>
                     </div>
                 </div>
