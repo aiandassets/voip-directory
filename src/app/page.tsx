@@ -11,7 +11,7 @@ export default function Home() {
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
           <div className="mb-6 inline-flex items-center rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-medium text-indigo-400 ring-1 ring-inset ring-indigo-500/20">
-            <span className="mr-2">🛡️</span> Free Reputation Tool
+            <span className="mr-2">🛡️</span> Free Reputation Tool (v2.0)
           </div>
 
           <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-6">
