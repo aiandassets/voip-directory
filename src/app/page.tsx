@@ -5,40 +5,45 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
 
-      {/* HERO SECTION */}
-      <div className="relative isolate overflow-hidden bg-slate-900 pt-14 pb-24 sm:pb-32">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
+      <div className="relative isolate overflow-hidden bg-slate-900 min-h-[calc(100vh-64px)] flex items-center justify-center">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-5" />
         <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-slate-900 shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">DialSignal</span>
-            </h1>
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-200 sm:text-4xl mb-8">
-              Is Your Number Marked as Spam?
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-400">
-              Enter your phone number below to instantly check its reputation, spam labeling, and connectivity score across major carriers.
-            </p>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+          <div className="mb-6 inline-flex items-center rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-medium text-indigo-400 ring-1 ring-inset ring-indigo-500/20">
+            <span className="mr-2">🛡️</span> Free Reputation Tool
+          </div>
 
-            {/* SPAM CHECKER INPUT HERO */}
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
+          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-6">
+            Is Your Number Marked<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">"Scam Likely"?</span>
+          </h1>
+
+          <p className="mt-6 text-xl leading-8 text-slate-400 max-w-3xl mx-auto">
+            76% of customers ignore calls flagged as spam. Check your number's reputation score instantly across major carrier databases.
+          </p>
+
+          {/* SPAM CHECKER INPUT HERO */}
+          <div className="mt-12 bg-white rounded-2xl p-8 max-w-2xl mx-auto shadow-2xl relative z-20">
+            <h3 className="text-slate-900 font-semibold text-lg mb-4">Enter Business Phone Number</h3>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
               <input
                 type="tel"
                 placeholder="(555) 123-4567"
-                className="w-full min-w-0 flex-auto rounded-xl border-0 bg-white/5 px-4 py-3.5 text-white shadow-sm ring-1 ring-inset ring-white/20 focus:ring-2 focus:ring-inset focus:ring-emerald-500 sm:text-sm sm:leading-6 backdrop-blur-sm"
+                className="w-full min-w-0 flex-auto rounded-xl border border-slate-300 bg-white px-4 py-4 text-slate-900 shadow-sm focus:ring-2 focus:ring-indigo-600 sm:text-lg"
               />
+            </div>
+            <p className="mt-3 text-xs text-slate-500 text-left">
+              * We do not store your number or use it for marketing. This is a secure reputation lookup.
+            </p>
+            <div className="mt-6">
               <Link
-                href="/spam-checker" // For now, linking to full tool. Later can embed logic.
-                className="w-full sm:w-auto flex-none rounded-xl bg-emerald-500 px-8 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 transition-all"
+                href="/spam-checker" // Logic linked to this page
+                className="w-full block rounded-xl bg-indigo-600 px-8 py-4 text-center text-lg font-bold text-white shadow-lg hover:bg-indigo-500 transition-all hover:scale-[1.02]"
               >
-                Check Reputation
+                Check Reputation Status
               </Link>
             </div>
-            <p className="mt-4 text-xs text-slate-500">
-              100% Free & Anonymous. No name required.
-            </p>
           </div>
         </div>
       </div>
