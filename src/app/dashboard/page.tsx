@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
+import { AreaCodeSearch } from '@/components/dashboard/AreaCodeSearch';
+import { ActiveNumbersList } from '@/components/dashboard/ActiveNumbersList';
 
 export default async function Dashboard() {
     const supabase = await createClient();
@@ -28,42 +30,34 @@ export default async function Dashboard() {
 
             <main className="mx-auto max-w-7xl px-6 py-12">
                 <div className="mb-8">
-                    <h1 className="text-3xl font-bold">Welcome back</h1>
-                    <p className="text-muted-foreground mt-2">Manage your clean numbers and subscriptions.</p>
+                    <h1 className="text-3xl font-bold">Dashboard</h1>
+                    <p className="text-muted-foreground mt-2">Manage your clean numbers and remediation cases.</p>
                 </div>
 
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {/* STATS - Placeholder for now */}
-                    <div className="rounded-xl border bg-card p-6 shadow-sm">
-                        <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">Active Numbers</h3>
-                        <p className="mt-2 text-3xl font-bold">0</p>
-                        <Link href="/remediate" className="mt-4 block text-sm text-primary hover:underline">
-                            + Buy a Number
-                        </Link>
+                <div className="grid gap-6 md:grid-cols-3">
+                    {/* Left Column: Active Numbers (Takes 2 cols) */}
+                    <div className="md:col-span-2 space-y-6">
+                        <ActiveNumbersList />
+
+                        {/* Placeholder for future Remediation List */}
+                        <div className="rounded-xl border bg-card p-6 shadow-sm">
+                            <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-4">Remediation Cases</h3>
+                            <p className="text-sm text-muted-foreground">No active remediation requests.</p>
+                            <Link href="/remediate" className="mt-4 inline-block text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                                Start a Remediation Case &rarr;
+                            </Link>
+                        </div>
                     </div>
 
-                    <div className="rounded-xl border bg-card p-6 shadow-sm">
-                        <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">Subscription</h3>
-                        <p className="mt-2 text-3xl font-bold">Free</p>
-                        <p className="text-sm text-muted-foreground">Pay-as-you-go.</p>
-                    </div>
+                    {/* Right Column: Actions (Takes 1 col) */}
+                    <div className="space-y-6">
+                        <AreaCodeSearch />
 
-                    <div className="rounded-xl border bg-card p-6 shadow-sm">
-                        <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">Remediation Status</h3>
-                        <p className="mt-2 text-sm text-muted-foreground">No active cases.</p>
-                    </div>
-                </div>
-
-                {/* AREA CODE SEARCH (Placeholder for Phase 3) */}
-                <div className="mt-12 rounded-xl border border-dashed border-slate-300 p-12 text-center">
-                    <h3 className="text-lg font-semibold text-slate-900">Get a Clean Number</h3>
-                    <p className="text-slate-500 mt-2 max-w-md mx-auto">
-                        Search for available numbers in your preferred area code with guaranteed Clean Reputation.
-                    </p>
-                    <div className="mt-6">
-                        <Link href="/remediate" className="rounded-lg bg-indigo-600 px-4 py-2 text-white font-medium hover:bg-indigo-500">
-                            Search Inventory
-                        </Link>
+                        <div className="rounded-xl border bg-card p-6 shadow-sm">
+                            <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">Subscription</h3>
+                            <p className="mt-2 text-3xl font-bold">Free</p>
+                            <p className="text-sm text-muted-foreground">Pay-as-you-go.</p>
+                        </div>
                     </div>
                 </div>
             </main>
