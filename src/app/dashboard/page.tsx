@@ -30,9 +30,14 @@ export default async function Dashboard() {
             </nav>
 
             <main className="mx-auto max-w-7xl px-6 py-12">
-                <div className="mb-8">
-                    <h1 className="text-3xl font-bold">Dashboard</h1>
-                    <p className="text-muted-foreground mt-2">Manage your clean numbers and remediation cases.</p>
+                <div className="mb-8 flex items-center justify-between">
+                    <div>
+                        <h1 className="text-3xl font-bold">Dashboard</h1>
+                        <p className="text-muted-foreground mt-2">Manage your clean numbers and remediation cases.</p>
+                    </div>
+                    <span className="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300">
+                        v3.0 Live
+                    </span>
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-3">
