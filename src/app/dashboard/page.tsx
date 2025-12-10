@@ -23,7 +23,7 @@ export default function DashboardPage() {
         <div className="min-h-screen bg-background">
             <nav className="border-b bg-card px-6 py-4">
                 <div className="mx-auto flex max-w-7xl items-center justify-between">
-                    <Link href="/" className="text-xl font-bold">VOIP Directory</Link>
+                    <Link href="/" className="text-xl font-bold">TrustDial</Link>
                     <div className="flex items-center gap-4">
                         <span className="text-sm text-muted-foreground">Welcome, Member</span>
                         <button

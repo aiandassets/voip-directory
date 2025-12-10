@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { CheckCircle, Clock, Shield, ArrowRight, Phone, AlertTriangle, Star, MapPin, ArrowDown } from 'lucide-react';
 
 export default function RemediatePage() {
+    const [areaCode, setAreaCode] = useState('');
+    const [forwardingNumber, setForwardingNumber] = useState('');
+
     return (
         <main className="min-h-screen bg-slate-50">
             {/* Hero Section */}
@@ -76,19 +79,39 @@ export default function RemediatePage() {
                             <div className="space-y-4 mb-6">
                                 <div>
                                     <label className="block text-xs font-semibold text-slate-500 mb-1">Preferred Area Code (Optional)</label>
-                                    <input type="text" placeholder="e.g. 512, 415, 212" className="w-full text-sm border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500" />
+                                    <input
+                                        type="text"
+                                        placeholder="e.g. 512, 415, 212"
+                                        className="w-full text-sm border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
+                                        value={areaCode}
+                                        onChange={(e) => setAreaCode(e.target.value)}
+                                    />
                                 </div>
                                 <div>
                                     <label className="block text-xs font-semibold text-slate-500 mb-1">Forward Calls To (Optional)</label>
-                                    <input type="tel" placeholder="Your cell or office line" className="w-full text-sm border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500" />
+                                    <input
+                                        type="tel"
+                                        placeholder="Your cell or office line"
+                                        className="w-full text-sm border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
+                                        value={forwardingNumber}
+                                        onChange={(e) => setForwardingNumber(e.target.value)}
+                                    />
                                 </div>
                             </div>
 
-                            <a href="https://buy.stripe.com/8x2cN5essh1m57D2T68EM05" className="block w-full text-center rounded-xl bg-emerald-600 px-3.5 py-4 text-base font-bold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 transition-all flex items-center justify-center gap-2">
+                            <button
+                                onClick={() => {
+                                    // Save preferences
+                                    localStorage.setItem('trustdial_order_prefs', JSON.stringify({ areaCode, forwardingNumber }));
+                                    // Redirect to Stripe
+                                    window.location.href = "https://buy.stripe.com/8x2cN5essh1m57D2T68EM05";
+                                }}
+                                className="w-full text-center rounded-xl bg-emerald-600 px-3.5 py-4 text-base font-bold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 transition-all flex items-center justify-center gap-2"
+                            >
                                 Get a Clean Number Now <ArrowRight className="w-4 h-4" />
-                            </a>
+                            </button>
                             <p className="text-xs text-center text-slate-400 mt-2">
-                                Note: You will confirm these details after checkout.
+                                You'll be redirected to Stripe for secure checkout.
                             </p>
                         </div>
                     </div>

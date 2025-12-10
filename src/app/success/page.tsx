@@ -11,10 +11,20 @@ function SuccessContent() {
     const searchParams = useSearchParams();
     const sessionId = searchParams.get('session_id');
 
+    const [orderPrefs, setOrderPrefs] = useState<{ areaCode?: string, forwardingNumber?: string } | null>(null);
+
     useEffect(() => {
         if (sessionId) {
             unlock('pro-member@verified.com');
-            localStorage.setItem('voip-directory-role', 'pro');
+            localStorage.setItem('voip-directory-role', 'pro'); // Legacy key, keeping for compatibility
+
+            // Check for pending order
+            const savedPrefs = localStorage.getItem('trustdial_order_prefs');
+            if (savedPrefs) {
+                setOrderPrefs(JSON.parse(savedPrefs));
+                // Optional: Clear it so it doesn't show up on next revisit? 
+                // No, keep it for a bit or clear on unmount. Let's keep it for reassurance.
+            }
         }
     }, [sessionId]);
 
@@ -25,6 +35,22 @@ function SuccessContent() {
             </div>
 
             <h1 className="text-3xl font-bold text-slate-900 mb-4">Payment Successful!</h1>
+
+            {orderPrefs && (
+                <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-4 mb-6 text-left">
+                    <h3 className="font-bold text-emerald-900 mb-2 text-sm uppercase tracking-wide">Order Confirmed</h3>
+                    {orderPrefs.areaCode && (
+                        <p className="text-emerald-800 text-sm"><strong>Preferred Area Code:</strong> {orderPrefs.areaCode}</p>
+                    )}
+                    {orderPrefs.forwardingNumber && (
+                        <p className="text-emerald-800 text-sm"><strong>Forward Calls To:</strong> {orderPrefs.forwardingNumber}</p>
+                    )}
+                    <p className="text-emerald-600 text-xs mt-3 border-t border-emerald-100 pt-2">
+                        Member Setup Team is configuring your number now. Look for an email with your new credentials shortly.
+                    </p>
+                </div>
+            )}
+
             <p className="text-slate-600 mb-8">
                 Your account is verified. You now have unlimited access to all directory tools and reports.
             </p>
