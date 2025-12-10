@@ -1,7 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
-import { CheckCircle, Clock, Shield, ArrowRight, Phone, AlertTriangle, Star } from 'lucide-react';
+import { CheckCircle, Clock, Shield, ArrowRight, Phone, AlertTriangle, Star, MapPin, ArrowDown } from 'lucide-react';
 
 export default function RemediatePage() {
     return (
@@ -67,9 +68,29 @@ export default function RemediatePage() {
                                 <span>Area Code Selection Available</span>
                             </li>
                         </ul>
-                        <a href="https://buy.stripe.com/8x2cN5essh1m57D2T68EM05" className="block w-full text-center rounded-xl bg-emerald-600 px-3.5 py-4 text-base font-bold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 transition-all">
-                            Get a Clean Number Now
-                        </a>
+                        <div className="border-t border-slate-100 pt-6 mt-6">
+                            <h4 className="font-bold text-sm text-slate-800 mb-3 flex items-center gap-2">
+                                <MapPin className="w-4 h-4 text-emerald-600" />
+                                Customize Your Number
+                            </h4>
+                            <div className="space-y-4 mb-6">
+                                <div>
+                                    <label className="block text-xs font-semibold text-slate-500 mb-1">Preferred Area Code (Optional)</label>
+                                    <input type="text" placeholder="e.g. 512, 415, 212" className="w-full text-sm border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500" />
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-semibold text-slate-500 mb-1">Forward Calls To (Optional)</label>
+                                    <input type="tel" placeholder="Your cell or office line" className="w-full text-sm border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500" />
+                                </div>
+                            </div>
+
+                            <a href="https://buy.stripe.com/8x2cN5essh1m57D2T68EM05" className="block w-full text-center rounded-xl bg-emerald-600 px-3.5 py-4 text-base font-bold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 transition-all flex items-center justify-center gap-2">
+                                Get a Clean Number Now <ArrowRight className="w-4 h-4" />
+                            </a>
+                            <p className="text-xs text-center text-slate-400 mt-2">
+                                Note: You will confirm these details after checkout.
+                            </p>
+                        </div>
                     </div>
 
                     {/* Option 2: Remediation (Slow) */}

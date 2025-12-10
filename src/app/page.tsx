@@ -5,7 +5,7 @@ import { ProviderCard } from '@/components/ProviderCard';
 import Link from 'next/link';
 import { Search, Lock, Shield } from 'lucide-react';
 import { LeadCaptureModal } from '@/components/LeadCaptureModal';
-import { PaywallModal } from '@/components/PaywallModal';
+
 import { useState, useMemo } from 'react';
 import { useUnlock } from '@/context/UnlockContext';
 
@@ -61,8 +61,8 @@ export default function Home() {
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl mb-6 drop-shadow-sm">
-            Find the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Perfect VOIP Provider</span> <br />
-            with Verified Contact Rates
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">TrustDial</span>: The Credit Score<br />
+            for Your Phone Numbers
           </h1>
           <p className="mt-6 text-lg leading-8 text-slate-300 max-w-2xl mx-auto">
             Stop guessing. We track millions of calls to bring you the first transparency tool for dialing performance.

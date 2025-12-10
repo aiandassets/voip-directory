@@ -108,7 +108,7 @@ Opt-In: ${optIn ? 'Yes (90 Days)' : 'No'}
                 <div className="flex flex-col items-center text-center mb-6">
                     <h2 className="text-2xl font-bold">Unlock Full Access</h2>
                     <p className="mt-1 text-muted-foreground">
-                        Verify your details to access the open source directory.
+                        Create a free member account to access the tools forever.
                     </p>
                 </div>
 
@@ -231,7 +231,7 @@ Opt-In: ${optIn ? 'Yes (90 Days)' : 'No'}
                         className="flex w-full items-center justify-center rounded-lg bg-primary py-4 font-bold text-white text-lg transition-all hover:bg-primary/90 disabled:opacity-50"
                     >
                         {isLoading ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : null}
-                        {isLoading ? 'Processing...' : 'Unlock & Create Account'}
+                        {isLoading ? 'Processing...' : 'Create Free Account & Unlock'}
                     </button>
 
                     <button
@@ -245,14 +245,7 @@ Opt-In: ${optIn ? 'Yes (90 Days)' : 'No'}
                         Cancel
                     </button>
 
-                    <div className="relative my-4">
-                        <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-slate-200"></div></div>
-                        <div className="relative flex justify-center text-xs uppercase"><span className="bg-card px-2 text-muted-foreground">Or</span></div>
-                    </div>
 
-                    <a href="/upgrade" className="block w-full rounded-lg bg-indigo-50 border border-indigo-200 py-3 text-center font-bold text-indigo-700 hover:bg-indigo-100 transition-colors">
-                        Skip & Upgrade to Pro ($19/mo)
-                    </a>
                 </form>
 
                 <p className="mt-3 text-center text-xs text-muted-foreground">

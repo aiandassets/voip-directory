@@ -122,9 +122,9 @@ export default function DashboardPage() {
                                 <span className="font-medium">Dec 2024</span>
                             </div>
                             <div className="mt-6">
-                                <button className="w-full rounded-lg bg-secondary py-2 text-sm font-medium hover:bg-secondary/80">
-                                    Upgrade to Pro
-                                </button>
+                                <Link href="/remediate" className="block w-full text-center rounded-lg bg-indigo-600 text-white py-2 text-sm font-medium hover:bg-indigo-700">
+                                    Get a Clean Number
+                                </Link>
                             </div>
                         </div>
                     </div>

@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 import { Provider } from '@/lib/data';
 import Link from 'next/link';
-import { ArrowLeft, CheckCircle2, Phone, BarChart, Lock, Star } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Phone, BarChart, Lock, Star, Shield } from 'lucide-react';
 import { useUnlock } from '@/context/UnlockContext';
-import { PaywallModal } from '@/components/PaywallModal';
+import { LeadCaptureModal } from '@/components/LeadCaptureModal';
 import { Review } from '@/lib/data';
 
 interface Props {
@@ -14,21 +14,32 @@ interface Props {
 }
 
 export function ProviderDetail({ provider, rank }: Props) {
-    const { role } = useUnlock();
+    const isTopTier = rank <= 3;
+    const { isUnlocked } = useUnlock();
     const [mounted, setMounted] = useState(false);
+    const [showGate, setShowGate] = useState(false);
 
     useEffect(() => {
         setMounted(true);
-    }, []);
-
-    const isTopTier = rank <= 3;
-    const isPro = role === 'pro' || role === 'admin';
-    // Lock if NOT top tier AND NOT pro
-    const isLocked = !isTopTier && !isPro;
+        if (mounted && !isUnlocked && !isTopTier) {
+            setShowGate(true);
+        }
+    }, [mounted, isUnlocked, isTopTier]);
+    // Lock if NOT top tier AND NOT unlocked
+    const isLocked = !isTopTier && !isUnlocked;
 
     return (
         <div className="min-h-screen bg-background pb-20">
-            <PaywallModal isOpen={isLocked} />
+            <LeadCaptureModal isOpen={showGate} onClose={() => setShowGate(false)} />
+
+            {/* Upsell Banner for Unlocked Users */}
+            {isUnlocked && (
+                <div className="bg-indigo-600 text-white px-4 py-3 text-center">
+                    <p className="text-sm font-medium">
+                        Using {provider.name}? <Link href="/remediate" className="underline font-bold hover:text-indigo-100">Get a clean number instantly</Link> to boost connection rates.
+                    </p>
+                </div>
+            )}
             <div className="bg-slate-900 pb-24 pt-10 sm:pb-32 lg:pt-16">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <nav className="flex items-center space-x-4">
@@ -49,12 +60,22 @@ export function ProviderDetail({ provider, rank }: Props) {
                     <div className="lg:col-span-2 space-y-8 relative">
 
                         {isLocked && (
-                            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/80 backdrop-blur-md rounded-2xl border p-8 text-center">
-                                {/* Content hidden by PaywallModal, but this provides the backdrop text if modal is closed or for visual structure */}
+                            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm rounded-2xl border p-8 text-center">
+                                <Lock className="w-12 h-12 text-slate-400 mb-4" />
+                                <h3 className="text-xl font-bold mb-2">Detailed Report Locked</h3>
+                                <p className="text-slate-500 mb-6 max-w-sm">
+                                    Unlock the full directory to see contact rates, daily volume, and verified reviews for this provider.
+                                </p>
+                                <button
+                                    onClick={() => setShowGate(true)}
+                                    className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-colors"
+                                >
+                                    Unlock for Free
+                                </button>
                             </div>
                         )}
 
-                        <div className={`rounded-2xl bg-card p-8 shadow-sm ring-1 ring-gray-900/5 ${isLocked ? 'blur-sm select-none opacity-50 overflow-hidden h-[600px]' : ''}`}>
+                        <div className={`rounded-2xl bg-card p-8 shadow-sm ring-1 ring-gray-900/5 ${isLocked ? 'blur-sm select-none opacity-50 overflow-hidden h-[600px] pointer-events-none' : ''}`}>
                             <h2 className="text-2xl font-bold tracking-tight mb-6">Performance Report</h2>
 
                             <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 mb-8">

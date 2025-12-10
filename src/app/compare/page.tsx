@@ -20,11 +20,12 @@ export default function ComparePage() {
     }, []);
 
     // Strict Paywall: If not Unlocked (Guest), Show Gate
-    useEffect(() => {
-        if (mounted && !isUnlocked) {
-            setShowGate(true);
-        }
-    }, [mounted, isUnlocked]);
+    // REMOVED for Data Transparency - Tool is now Free
+    // useEffect(() => {
+    //     if (mounted && !isUnlocked) {
+    //         setShowGate(true);
+    //     }
+    // }, [mounted, isUnlocked]);
 
     const toggleProvider = (id: string) => {
         if (selectedIds.includes(id)) {
@@ -46,10 +47,10 @@ export default function ComparePage() {
 
     return (
         <main className="min-h-screen bg-slate-50 py-12 px-6 lg:px-8 relative">
-            <LeadCaptureModal isOpen={showGate} />
-            {mounted && !isUnlocked && (
+            {/* <LeadCaptureModal isOpen={showGate} /> */}
+            {/* {mounted && !isUnlocked && (
                 <div className="absolute inset-0 z-40 bg-white/50 backdrop-blur-sm pointer-events-none"></div>
-            )}
+            )} */}
             <div className="mx-auto max-w-7xl">
                 <Link href="/" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-900 mb-8 transition-colors">
                     <ArrowLeft className="w-4 h-4" /> Back to Directory

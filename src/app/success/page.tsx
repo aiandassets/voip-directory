@@ -26,7 +26,7 @@ function SuccessContent() {
 
             <h1 className="text-3xl font-bold text-slate-900 mb-4">Payment Successful!</h1>
             <p className="text-slate-600 mb-8">
-                Your account has been upgraded. You now have unlimited access to the VOIP Directory and Analysis tools.
+                Your account is verified. You now have unlimited access to all directory tools and reports.
             </p>
 
             <div className="space-y-4">
