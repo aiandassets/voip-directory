@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://dialsignal.io'),
   title: "DialSignal - The Credit Score for Your Phone Numbers",
   description: "Check your spam risk, compare contact rates, and get instant clean numbers. The first transparency tool for VOIP performance.",
 };
